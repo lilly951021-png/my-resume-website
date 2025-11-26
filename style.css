@@ -4,3 +4,13 @@
     object-fit: cover;
     display: block;
 }
+.card-section {
+    scroll-margin-top: 70px; /* 導航欄高度約 40px，加上一些安全空間 */
+}
+.skill-item {
+    /* ... 其他樣式 ... */
+    text-align: left; /* 將置中改為靠左 */
+}
+.skill-item h3 {
+    text-align: center; /* 標題維持置中 */
+}
