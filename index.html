@@ -9,15 +9,51 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0; /* 移除 body padding，改在 container 內處理 */
             background-color: #f4f7f6;
             color: #333;
             line-height: 1.6;
+            scroll-behavior: smooth; /* 【新增】啟用 CSS 原生平滑捲動 */
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
+            padding: 20px; /* 在這裡設定內邊距 */
+        }
+
+        /* 導航欄樣式 【新增】 */
+        .navbar {
+            background-color: #1e3a8a; /* 深藍色背景 */
+            padding: 10px 0;
+            position: sticky; /* 黏性定位，捲動時保持在頂部 */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #a0c4ff; /* 懸停時變色 */
         }
 
         /* 標題樣式 */
@@ -42,18 +78,19 @@
         /* ==================== 1. 個人資訊區塊樣式 (Header) ==================== */
         .header-section {
             display: flex;
-            flex-direction: column; /* 預設為直向，確保手機版友好 */
+            flex-direction: column;
             align-items: center;
             text-align: center;
             padding: 30px;
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* 增加頂部間距 */
         }
         
         @media (min-width: 600px) {
             .header-section {
-                flex-direction: row; /* 寬螢幕時改為橫向 */
+                flex-direction: row;
                 text-align: left;
                 align-items: center;
             }
@@ -62,20 +99,25 @@
                 margin-bottom: 0;
             }
             .info-details {
-                flex-grow: 1; /* 讓資訊區塊佔滿剩餘空間 */
+                flex-grow: 1;
             }
         }
-        /* 修正後的照片樣式 */
+        
         .profile-photo {
             flex-shrink: 0;
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            object-fit: cover; /* 確保圖片在圓形容器內正確顯示 */
+            object-fit: cover;
             border: 4px solid #4a90e2;
             margin-bottom: 20px;
+            transition: transform 0.5s ease-in-out;
         }
 
+        .profile-photo:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+        
         .info-details h1 {
             margin-top: 0;
             margin-bottom: 5px;
@@ -90,10 +132,12 @@
             color: #4a90e2;
             text-decoration: none;
             margin-right: 15px;
+            transition: color 0.3s;
         }
 
         .contact-info a:hover {
             text-decoration: underline;
+            color: #1e3a8a;
         }
         
         /* ==================== 2. 技能展示區樣式 ==================== */
@@ -110,6 +154,12 @@
             border-radius: 8px;
             background-color: #f9f9f9;
             text-align: center;
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .skill-item:hover {
+             box-shadow: 0 8px 15px rgba(74, 144, 226, 0.3);
+             background-color: #ffffff;
         }
 
         .skill-item h3 {
@@ -176,19 +226,17 @@
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
         }
 
         .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
         }
         
-        /* 專案圖片樣式修正 */
         .project-item img {
             width: 100%;
-            /* height: auto; 讓高度自動調整，移除固定的 height/width 屬性 */
-            min-height: 200px; /* 給予一個最小高度，避免作品圖過小 */
+            min-height: 200px; 
             object-fit: cover;
             display: block;
         }
@@ -202,25 +250,24 @@
             margin-top: 0;
             margin-bottom: 5px;
         }
-
-        .project-details a {
-            display: inline-block;
-            margin-top: 10px;
-            color: #4a90e2;
-            text-decoration: none;
-            font-weight: bold;
-        }
         
     </style>
 </head>
 <body>
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="#skills-section">技能</a></li>
+            <li><a href="#experience-section">經歷</a></li>
+            <li><a href="#portfolio-section">作品集</a></li>
+        </ul>
+    </nav>
 
     <div class="container">
         <header class="header-section">
             <img src="image/P3.jpg" alt="個人照片" class="profile-photo">
             
-            <div class="info-details">
-                <h1>蘇予安</h1>
+            <div class="info-details"> <h1>蘇予安</h1>
                 <p><strong>大學生</strong></p>
                 
                 <hr style="border: 0; height: 1px; background-color: #eee; margin: 15px 0;">
@@ -229,15 +276,15 @@
                     <p>
                         📧 <a href="mailto:lilly951021@gmail.com">lilly951021@gmail.com</a> 
                         📱 <span>+886 972072450</span> 
-                        🌐 <a href="https://lilly951021-png.github.io/my-resume-website
- </p>
+                        🌐 <a href="https://lilly951021-png.github.io/my-resume-website/" target="_blank">GitHub Pages 連結</a>
+                    </p>
                 </div>
             </div>
         </header>
 
         <main>
             
-            <section class="card-section">
+            <section class="card-section" id="skills-section">
                 <h2 class="section-title">技能Show</h2>
                 <div class="skills-grid">
                     <div class="skill-item">
@@ -255,13 +302,13 @@
                 </div>
             </section>
             
-            <section class="card-section">
+            <section class="card-section" id="experience-section">
                 <h2 class="section-title">在學經歷 (Experience)</h2>
                 <div class="timeline">
                     
                     <div class="timeline-item">
                         <h4>國小 ：古亭國小</h4>
-                        <span class="duration">（102-108）</span>
+                        <span class="duration">（請填寫年份）</span>
                         <ul>
                             <li>活動比賽社團樣樣來，培養興趣</li>
                             <li>參與巧固球校隊和獨輪車社，學習團隊合作</li>
@@ -271,7 +318,7 @@
                     
                     <div class="timeline-item">
                         <h4>國中:螢橋國中</h4>
-                        <span class="duration">（108-111）</span>
+                        <span class="duration">（請填寫年份）</span>
                         <ul>
                             <li>多看多聽多學</li>
                             <li>參與榮譽服務隊，課餘之外找到自我價值</li>
@@ -280,7 +327,7 @@
 
                     <div class="timeline-item">
                         <h4>高中：景美女中</h4>
-                        <span class="duration">（111-114）</span>
+                        <span class="duration">（請填寫年份）</span>
                         <ul>
                             <li>考試升學是我們逃避不了的現實，只有裝備好自己學習自律</li>
                             <li>參與黃衫撒野去，從郊山到百岳，跨出舒適圈，與環境共好、強身並培養毅力</li>
@@ -290,7 +337,7 @@
                 </div>
             </section>
 
-            <section class="card-section">
+            <section class="card-section" id="portfolio-section">
                 <h2 class="section-title">作品集 (Portfolio)</h2>
                 <div class="portfolio-grid">
                     
@@ -299,11 +346,10 @@
                             <img src="image/20251121_164207.jpg" alt="願我們能承接你的軟弱">
                             <h4>作品名稱 1：願我們能承接你的軟弱</h4>
                             <p>使用媒材：簽字筆、水彩。作品描述：我們總把你想得很堅強，殊不知這個人設讓你必須在我們面前偽裝，然而我們都忘了，在我們看不到的地方，你也是那個和我們差不多大的孩子，你也有那不為人知的脆弱面，願畫上的我們可以代替我們陪伴著你。</p>
-                            </div>
+                        </div>
                     </div>
 
                     <div class="project-item">
-                
                         <div class="project-details">
                             <img src="image/p2.jpg" alt="情緒塔羅牌">
                             <h4>作品名稱 2：情緒塔羅牌</h4>
@@ -324,6 +370,17 @@
 
         </main>
     </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
