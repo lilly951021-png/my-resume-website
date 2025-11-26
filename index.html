@@ -253,8 +253,9 @@
         
     </style>
 </head>
+
 <body>
-    
+
     <nav class="navbar">
         <ul>
             <li><a href="#skills-section">技能</a></li>
@@ -265,9 +266,12 @@
 
     <div class="container">
         <header class="header-section">
-            <img src="image/P3.jpg" alt="個人照片" class="profile-photo">
-            
-            <div class="info-details"> <h1>蘇予安</h1>
+    <img src="image/P3.jpg" alt="個人照片" class="profile-photo">
+    
+    <div class="info-details"> 
+        <h1>蘇予安</h1>
+        </div>
+</header>
                 <p><strong>大學生</strong></p>
                 
                 <hr style="border: 0; height: 1px; background-color: #eee; margin: 15px 0;">
@@ -276,7 +280,9 @@
                     <p>
                         📧 <a href="mailto:lilly951021@gmail.com">lilly951021@gmail.com</a> 
                         📱 <span>+886 972072450</span> 
-                        🌐 <a href="https://lilly951021-png.github.io/my-resume-website/" target="_blank">GitHub Pages 連結</a>
+                        IG：
+    <a href="https://www.instagram.com/你的帳號/" target="_blank">
+      @SUANAN999.1
                     </p>
                 </div>
             </div>
@@ -285,22 +291,63 @@
         <main>
             
             <section class="card-section" id="skills-section">
-                <h2 class="section-title">技能Show</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <h3>時間管理</h3>
-                        <p>高中時刻被排得滿滿當當，而大學後當時間真的掌握在自己手中，成績高低其實只有一線之隔，就是時間的運用。沒有規律的上學時間，兼顧生活作息，早起了，多的時間就是我的!</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>自律</h3>
-                        <p>已經過了18歲，該把自己當成年人來看，對自己的選擇負責任，要嘛4年後一無所有，要嘛擁有一切。把握人生幾個重要節點，把握能讀書、能容許你犯錯、能問問題的時間，之後就會順風順水。</p> 
-                    </div>
-                    <div class="skill-item">
-                        <h3>會生活</h3>
-                        <p>該讀書讀書、該玩就玩，適時給自己壓力、也適時將重擔放下。走馬看花不是我的路線，周遭人事物都值得我細細品味。</p>
-                    </div>
-                </div>
-            </section>
+    <h2 class="section-title">專業技能 (進度條版)</h2>
+    <style>
+        /* A 版本 CSS: 進度條樣式 */
+        .skill-bar-container {
+            margin-bottom: 25px;
+        }
+        .skill-bar-container h3 {
+            margin: 0 0 8px 0;
+            color: #1e3a8a;
+            font-size: 1.1em;
+            text-align: left !important;
+        }
+        .progress-bar {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            height: 15px;
+        }
+        .progress-level {
+            height: 15px;
+            border-radius: 5px;
+            background-color: #4a90e2;
+            transition: width 1.5s ease-in-out;
+            /* 這裡設定動畫的起點為 0 */
+            width: 0%; 
+        }
+        /* 實際進度 (需用 JavaScript 觸發或手動設定) */
+        .level-90 { width: 90%; }
+        .level-75 { width: 75%; }
+        .level-85 { width: 85%; }
+    </style>
+
+    <div class="skills-content">
+        <div class="skill-bar-container">
+            <h3>時間管理 (90%)</h3>
+            <div class="progress-bar">
+                <div class="progress-level level-90"></div>
+            </div>
+            <p style="font-size: 0.9em; margin-top: 5px; color: #666;">高中時刻被排得滿滿當當，而大學後當時間真的掌握在自己手中，成績高低其實只有一線之隔，就是時間的運用。</p>
+        </div>
+
+        <div class="skill-bar-container">
+            <h3>自律 (75%)</h3>
+            <div class="progress-bar">
+                <div class="progress-level level-75"></div>
+            </div>
+            <p style="font-size: 0.9em; margin-top: 5px; color: #666;">已經過了18歲，該把自己當成年人來看，對自己的選擇負責任，要嘛4年後一無所有，要嘛擁有一切。</p>
+        </div>
+
+        <div class="skill-bar-container">
+            <h3>會生活 (85%)</h3>
+            <div class="progress-bar">
+                <div class="progress-level level-85"></div>
+            </div>
+            <p style="font-size: 0.9em; margin-top: 5px; color: #666;">該讀書讀書、該玩就玩，適時給自己壓力、也適時將重擔放下。走馬看花不是我的路線，周遭人事物都值得我細細品味。</p>
+        </div>
+    </div>
+</section>
             
             <section class="card-section" id="experience-section">
                 <h2 class="section-title">在學經歷 (Experience)</h2>
@@ -308,7 +355,7 @@
                     
                     <div class="timeline-item">
                         <h4>國小 ：古亭國小</h4>
-                        <span class="duration">（請填寫年份）</span>
+                        <span class="duration">（102-108）</span>
                         <ul>
                             <li>活動比賽社團樣樣來，培養興趣</li>
                             <li>參與巧固球校隊和獨輪車社，學習團隊合作</li>
@@ -318,18 +365,18 @@
                     
                     <div class="timeline-item">
                         <h4>國中:螢橋國中</h4>
-                        <span class="duration">（請填寫年份）</span>
+                        <span class="duration">（108-111）</span>
                         <ul>
-                            <li>多看多聽多學</li>
+                            <li>國文朗讀、作文比賽，訓練台風與口條，大量閱讀課外書 </li>
                             <li>參與榮譽服務隊，課餘之外找到自我價值</li>
                         </ul>
                     </div>
 
                     <div class="timeline-item">
                         <h4>高中：景美女中</h4>
-                        <span class="duration">（請填寫年份）</span>
+                        <span class="duration">（111-114）</span>
                         <ul>
-                            <li>考試升學是我們逃避不了的現實，只有裝備好自己學習自律</li>
+                            <li></li>
                             <li>參與黃衫撒野去，從郊山到百岳，跨出舒適圈，與環境共好、強身並培養毅力</li>
                             <li>加入旗隊、獲選班際合唱指揮，學習肢體、情感的表達</li>
                         </ul>
