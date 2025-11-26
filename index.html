@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蘇予安 - 個人簡歷</title>
+    <style>
+        /* ==================== 基礎與通用樣式 ==================== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* 標題樣式 */
+        .section-title {
+            text-align: center;
+            color: #1e3a8a;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #a0c4ff;
+        }
+
+        /* 通用卡片樣式 */
+        .card-section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* ==================== 1. 個人資訊區塊樣式 (Header) ==================== */
+        .header-section {
+            display: flex;
+            flex-direction: column; /* 預設為直向，確保手機版友好 */
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (min-width: 600px) {
+            .header-section {
+                flex-direction: row; /* 寬螢幕時改為橫向 */
+                text-align: left;
+                align-items: center;
+            }
+            .profile-photo {
+                margin-right: 30px;
+                margin-bottom: 0;
+            }
+            .info-details {
+                flex-grow: 1; /* 讓資訊區塊佔滿剩餘空間 */
+            }
+        }
+
+        .profile-photo {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #a0c4ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1em;
+            color: #ffffff;
+            font-weight: bold;
+            border: 4px solid #4a90e2;
+            margin-bottom: 20px; /* 直向排列時的照片下方間距 */
+        }
+
+        .info-details h1 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #1e3a8a;
+        }
+
+        .info-details p {
+            margin: 5px 0;
+        }
+
+        .contact-info a {
+            color: #4a90e2;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ==================== 2. 技能展示區樣式 ==================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 自動適應，確保每項最小寬度 */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .skill-item h3 {
+            color: #4a90e2;
+            margin-top: 0;
+        }
+
+        /* ==================== 3. 經歷時間軸樣式 ==================== */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: #4a90e2;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px; /* 圓點位置 */
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #1e3a8a;
+            border: 3px solid #ffffff;
+        }
+        
+        .timeline-item h4 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #1e3a8a;
+        }
+        
+        .timeline-item .duration {
+            font-style: italic;
+            color: #666;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* ==================== 4. 專案作品集樣式 ==================== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .project-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px); /* 懸停時略微上浮 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: #cccccc; /* 示意圖背景 */
+            min-height: 150px;
+            object-fit: cover;
+        }
+        
+        .project-details {
+            padding: 15px;
+        }
+
+        .project-details h4 {
+            color: #1e3a8a;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .project-details a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header-section">
+            <div class="profile-photo">
+                照片示意
+            </div>
+
+            <div class="info-details">
+                <h1>蘇予安</h1>
+                <p><strong></strong> (大學生)</p>
+                
+                <hr style="border: 0; height: 1px; background-color: #eee; margin: 15px 0;">
+
+                <div class="contact-info">
+                    <p>
+                        📧 <a href="mailto:your.email@example.com">your.email@example.com</a> 
+                        📱 <span>+886 9XX-XXX-XXX</span> 
+                        🌐 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn 個人檔案</a>
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            
+            <section class="card-section">
+                <h2 class="section-title">專業技能 (Skills)</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <h3>自律打敗焦慮</h3>
+                        <p>不高估自己臨時抱佛腳的能力</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>時間管理佳</h3>
+                        <p>教會，家庭，課業一個沒落掉</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>能動能靜</h3>
+                        <p> 該讀書讀書，該玩就玩</p>
+                    </div>
+                    </div>
+            </section>
+            
+            <section class="card-section">
+                <h2 class="section-title">在學經歷 (Experience)</h2>
+                <div class="timeline">
+                    
+                    <div class="timeline-item">
+                        <h4>國小 ：古亭國小</h4>
+                        <span class="duration">2023 年 1 月 - 至今</span>
+                        <ul>
+                            <li>活動比賽社團樣樣來，培養興趣</li>
+                            <li>參與巧固球校隊，學習與人合作</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>國中:螢橋國中/h4>
+                        <span class="duration">2020 年 7 月 - 2022 年 12 月</span>
+                        <ul>
+                            <li>多看多聽多學，課餘之外找到自我價值</li>
+                            <li>參與榮譽服務隊</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>高中：景美女中</h4>
+                        <span class="duration">2018 年 3 月 - 2020 年 6 月</span>
+                        <ul>
+                            <li>考試升學是我們逃避不了的現實，只有裝備好自己提早準備</li>
+                        </ul>
+                    </div>
+                    </div>
+            </section>
+
+            <section class="card-section">
+                <h2 class="section-title">美術作品集 (Portfolio)</h2>
+                <div class="portfolio-grid">
+                    
+                    <div class="project-item">
+                        <div class="project-img-placeholder">
+                           <img src="project-image-1.jpg" alt="專案 1 示意圖">
+                        </div>
+                        <div class="project-details">
+                            <h4>作品名稱 1：他們代替我們看著你</h4>
+                            <p>使用技術：簽字筆，水彩。作品描述：你總是那個在我們跌倒時拉我們一把的人，然而我們都忘了，你也有那不為人知的脆弱面...</p>
+                            <a href="https://github.com/your/project1" target="_blank">查看專案 (GitHub/Demo)</a>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-img-placeholder">
+                           <img src="project-image-2.jpg" alt="專案 2 示意圖">
+                        </div>
+                        <div class="project-details">
+                            <h4>作品名稱 2：</h4>
+                            <p>使用技術：Vue.js, Firebase。作品描述：開發一個輕量級內容管理系統，具有文章發布與評論功能。</p>
+                            <a href="https://github.com/your/project2" target="_blank">查看專案 (GitHub/Demo)</a>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-img-placeholder">
+                           <img src="project-image-3.jpg" alt="專案 3 示意圖">
+                        </div>
+                        <div class="project-details">
+                            <h4>作品名稱 3：資料視覺化工具</h4>
+                            <p>使用技術：Python, D3.js。作品描述：設計一個用於分析和展示銷售數據的儀表板工具。</p>
+                            <a href="https://github.com/your/project3" target="_blank">查看專案 (GitHub/Demo)</a>
+                        </div>
+                    </div>
+                    
+                    </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
