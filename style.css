@@ -14,3 +14,32 @@
 .skill-item h3 {
     text-align: center; /* 標題維持置中 */
 }
+/* ==================== 3. 經歷時間軸樣式 - 圖片調整 ==================== */
+.timeline-item .activity-photo {
+    flex-grow: 1; /* 讓每張圖片佔據相等的可用空間 */
+    min-width: 0;
+    /* 確保圖片不會超出時間軸項目的寬度 */
+    max-width: 100%; 
+    /* 圖片的固定高度，讓排版一致 */
+    height: auto; 
+    /* 圓角讓視覺更柔和 */
+    border-radius: 8px; 
+    /* 與文字或清單項目保持間距 */
+    margin-top: 15px; 
+    /* 加上輕微陰影，增加立體感 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    /* 確保圖片是區塊元素，佔滿空間 */
+    display: block;
+    margin-top: 0;
+    @media (max-width: 600px) {
+    .activity-photos-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+}
+.activity-photos-group {
+    display: flex; /* 啟用 Flexbox 佈局 */
+    gap: 15px;    /* 圖片之間的間距 */
+    margin-top: 15px; /* 與上面的文字保持距離 */
+}
